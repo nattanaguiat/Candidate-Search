@@ -1,33 +1,22 @@
-# React + TypeScript + Vite
+# Candidate Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This application helps to search for potential candidates for a company. Is reviewing a selection of profiles coming from GitHub where the whoever is using the app is able to reject or save the users.
 
-* [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md), which uses [Babel](https://babeljs.io/) for Fast Refresh
-* [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc), which uses [SWC](https://swc.rs/) for Fast Refresh
+## Usage
 
-## Expanding the ESLint configuration
+Deployed:
 
-If you're developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The Homescreen shows the different properties of each candidate and there is the option of Reject or Save by using the buttons.
 
-* Configure the top-level `parserOptions` property as follows:
+![]()
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+On the table, all the saved potential candidates are being displayed, having a different view of the properties. Also there is the option of Reject on the right side of the table by using the button.
 
-* Replace `plugin:@typescript-eslint/recommended` with `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`.
-* Optionally, add `plugin:@typescript-eslint/stylistic-type-checked`.
-* Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` and `plugin:react/jsx-runtime` to the `extends` list.
+## Question
 
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+GitHub: [Nattan Aguia Trujillo](https://github.com/nattanaguiat)
+
+If you have additional questions, please contact me by email at [nattan23@msn.com](nattan23@msn.com)
+

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { searchGithub, searchGithubUser } from '../api/API';
 import { CandidateProps } from '../interfaces/Candidate.interface';
+import { MdAddCircleOutline, MdRemoveCircleOutline } from 'react-icons/md';
 
 
 
@@ -40,10 +41,10 @@ const CandidateCard = () => {
     return ( 
     <>
     <h1>CandidateSearch</h1>
-    <div className='card'>
+    <div className='card mx-auto bg-black text-white border-0 rounded-5 overflow-hidden text-start d-flex flex-column gap-1'>
       {candidate && (
         <>
-          <img src="img_avatar.png" alt="Avatar" className="avatar" />
+          <img src={candidate.avatar_url} alt="Avatar" className="avatar" />
 
           <h4>
             {candidate.name || candidate.login} ({candidate.login})
@@ -52,21 +53,24 @@ const CandidateCard = () => {
           <h4>Email:<a href="email">{candidate.email}</a></h4>
           <h4>Company: {candidate.company}</h4>
           <h4>Bio: {candidate.bio}</h4>
-          <div className='div-button'>
-
-          <button style={{borderRadius: "50%", backgroundColor: "green", color:"white", fontSize:"20px"}} onClick={handleSaveCandidates}>
-            +
-          </button>
-
-          <button style={{borderRadius: "50%", backgroundColor: "red", color:"white", fontSize:"20px"}} onClick={() => {
-            setIndex(index + 1)
-          }}>
-            -
-        </button>
-        </div>
+  
         </>
       )}
     </div>
+    <div className='justify-content-center gap-5 d-flex'>
+
+      <button className="d-flex align-items-center justify-content-center text-succes" onClick={handleSaveCandidates}>
+      {/* <MdAddCircleOutline style={{ fontSize: "50px" }}/> */}
+      +
+      </button>
+      
+      <button className="btn d-flex align-items-center justify-content-center text-" onClick={() => {
+        setIndex(index + 1)
+      }}>
+        {/* <MdRemoveCircleOutline /> */}
+        -
+      </button>
+      </div>
     </>
     );
 }

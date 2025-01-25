@@ -11,20 +11,18 @@ const Nav = () => {
   // }
 
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/" className={currentPage === '/' ? 'nav-link active' : 'nav-link'}>
+      <ul className="nav nav-underline">
+        <li className="nav-item">
+          <a className="nav-link active" href="#"><Link to="/" className={currentPage === '/' ? 'nav-link active' : 'nav-link'}>
           Home
-          </Link>
+          </Link></a>
         </li>
-        <li>
-          <Link to="/SavedCandidates" className={currentPage === '/search' ? 'nav-link active' : 'nav-link'}>
+        <li className="nav-item">
+          <a className="nav-link" href="#"><Link to="/SavedCandidates" className={currentPage === '/search' ? 'nav-link active' : 'nav-link'}>
            Saved Candidates 
-          </Link>
+          </Link></a>
         </li>
       </ul>
-    </nav>
   )
 };
 

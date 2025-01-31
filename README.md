@@ -14,6 +14,8 @@ The Homescreen shows the different properties of each candidate and there is the
 
 On the table, all the saved potential candidates are being displayed, having a different view of the properties. Also there is the option of Reject on the right side of the table by using the button.
 
+![]()
+
 ## Question
 
 GitHub: [Nattan Aguia Trujillo](https://github.com/nattanaguiat)

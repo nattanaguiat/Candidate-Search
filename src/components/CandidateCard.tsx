@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { searchGithub, searchGithubUser } from '../api/API';
 import { CandidateProps } from '../interfaces/Candidate.interface';
-import { MdAddCircleOutline, MdRemoveCircleOutline } from 'react-icons/md';
-
 
 
 
@@ -20,26 +18,39 @@ const CandidateCard = () => {
         const fetchData = async () => {
             const data = await searchGithub();
             setCandidatesList(data);
+            console.log(data)
             const user = await searchGithubUser(data[index].login);
-            setCandidate(user);
+            setCandidate(user);console.log(user)
         }
         fetchData();
     }, [])
 
     const handleSaveCandidates = async () => {
 
+            // Saving candidates on local storage by pushing them to the array after getting the ones we have already and adding the new one
+            let savedCandidates = JSON.parse(localStorage.getItem('candidates') || '[]') || [];
+            savedCandidates = savedCandidates.filter((c: CandidateProps) => {
+                return c.id !== candidate?.id;
+            })
+            savedCandidates.push(candidate)
+            localStorage.setItem('candidates', JSON.stringify(savedCandidates));
 
-        const user = await searchGithubUser(candidatesList[index].login || '');
-        setCandidate(user);
-        setIndex(index + 1)
-        const savedCandidates = JSON.parse(localStorage.getItem('candidates') || '[]') || [];
-        savedCandidates.push(user)
-        localStorage.setItem('candidates', JSON.stringify(savedCandidates));
-
+            // setIndex(index + 1)
+            // const user = await searchGithubUser(candidatesList[index].login || '');
+            // setCandidate(user);
+            nextCandidate();
     };
+
+    const nextCandidate = async () => {
+
+      setIndex(index + 1)
+      const user = await searchGithubUser(candidatesList[index].login || '');
+      console.log(JSON.stringify(user))
+      setCandidate(user);
+    }
   
     return ( 
-    <>
+      <>
     <h1>CandidateSearch</h1>
     <div className='card mx-auto bg-black text-white border-0 rounded-5 overflow-hidden text-start d-flex flex-column gap-1'>
       {candidate && (
@@ -57,21 +68,17 @@ const CandidateCard = () => {
         </>
       )}
     </div>
-    <div className='justify-content-center gap-5 d-flex'>
+    <div className='d-flex justify-content-around'>
 
-      <button className="d-flex align-items-center justify-content-center text-succes" onClick={handleSaveCandidates}>
-      {/* <MdAddCircleOutline style={{ fontSize: "50px" }}/> */}
-      +
+      <button  onClick={handleSaveCandidates}>
+        +
       </button>
       
-      <button className="btn d-flex align-items-center justify-content-center text-" onClick={() => {
-        setIndex(index + 1)
-      }}>
-        {/* <MdRemoveCircleOutline /> */}
+      <button  onClick={nextCandidate}>
         -
       </button>
       </div>
-    </>
+      </>
     );
 }
 

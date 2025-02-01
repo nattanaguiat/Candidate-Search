@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { searchGithub, searchGithubUser } from '../api/API';
 import { CandidateProps } from '../interfaces/Candidate.interface';
+import { MdAddCircleOutline, MdRemoveCircleOutline } from 'react-icons/md';
 
 
 
@@ -70,12 +71,12 @@ const CandidateCard = () => {
     </div>
     <div className='d-flex justify-content-around'>
 
-      <button  onClick={handleSaveCandidates}>
-        +
+      <button className="btn d-flex align-items-center justify-content-center text-success" onClick={handleSaveCandidates}>
+      <MdAddCircleOutline style={{ fontSize: "70px" }}/>
       </button>
       
-      <button  onClick={nextCandidate}>
-        -
+      <button className="btn d-flex align-items-center justify-content-center text-danger" onClick={nextCandidate}>
+      <MdRemoveCircleOutline style={{ fontSize: "70px" }}/>
       </button>
       </div>
       </>

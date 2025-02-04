@@ -6,7 +6,7 @@ This application helps to search for potential candidates for a company. Is revi
 
 ## Usage
 
-Deployed:
+Deployed: https://candidate-search-s61w.onrender.com
 
 The Homescreen shows the different properties of each candidate and there is the option of Reject or Save by using the buttons.
 
